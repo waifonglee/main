@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static seedu.billboard.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -12,6 +14,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.billboard.commons.core.GuiSettings;
 import seedu.billboard.commons.core.LogsCenter;
 import seedu.billboard.model.person.Person;
+import seedu.billboard.model.tag.Tag;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -147,5 +150,14 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons);
     }
+
+    public String tagstring() {
+        return addressBook.tagstring();
+    }
+
+    public Set<Tag> checkTagExistence(List<String> tagList) {
+        return addressBook.checkTagExistence(tagList);
+    }
+
 
 }

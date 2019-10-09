@@ -3,10 +3,13 @@ package seedu.billboard.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Set;
 
 import javafx.collections.ObservableList;
 import seedu.billboard.model.person.Person;
 import seedu.billboard.model.person.UniquePersonList;
+import seedu.billboard.model.tag.Tag;
+import seedu.billboard.model.tag.UniqueTagList;
 
 /**
  * Wraps all data at the address-book level
@@ -15,6 +18,7 @@ import seedu.billboard.model.person.UniquePersonList;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
+    private final UniqueTagList tags;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -25,6 +29,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
+        tags = new UniqueTagList();
     }
 
     public AddressBook() {}
@@ -117,4 +122,9 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return persons.hashCode();
     }
+
+    public Set<Tag> checkTagExistence(List<String> tagList) {
+        return tags.CheckTagExistence(tagList);
+    }
+
 }
